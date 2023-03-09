@@ -1,0 +1,12 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 20px;
+  border-top: 1px solid black;
+}
+
+.listItemContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

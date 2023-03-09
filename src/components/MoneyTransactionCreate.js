@@ -14,7 +14,7 @@ export const MoneyTransactionCreate = () => {
       <div className={styles.row}>
         <SelectInput name='User' />
         <DecimalInput name='Amount'/>
-        <Button text='Create'/>
+        <Button text='Create' size='small'/>
       </div>
 
     </div>
