@@ -1,48 +1,44 @@
 .button {
-    /* button reset */
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    text-decoration: none;
+  /* button reset */
+  border: 1px solid black;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  text-decoration: none;
 
-    background: transparent;
+  background: transparent;
 
-    /* inherit font & color from ancestor */
-    color: inherit;
-    font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
 
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
 
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  cursor: pointer;
 
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
-    cursor: pointer;
+  font-weight: 400;
+  transition: all 200ms;
 
-    font-weight: 400;
-    transition: all 200ms;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
-    border-radius: 9999px;
-    padding: 5px 15px;
-
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 0.9rem;
 }
 
 .button:focus {
   outline: none;
-  box-shadow: 0 0 6px #003fc7;
+  box-shadow: 0 0 6px #000000;
 }
 
-.primary {
-  color: #ffffff;
-  background: #2268FF;
+.small {
+  padding: 5px 15px;
+}
+
+.large {
+  padding: 20px 15px;
 }
