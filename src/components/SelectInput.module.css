@@ -13,7 +13,9 @@ label {
 select {
   border: 1px solid black;
   border-radius: none;
-  padding: 0.7rem;
+  padding: 0.6rem;
+  min-width: 170px;
+  flex-grow: 1;
 }
 
 select:focus {

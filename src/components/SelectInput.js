@@ -12,6 +12,7 @@ export const SelectInput = ({ name }) => {
       <div className={styles.inputField}>
         <label htmlFor={name}>{name}</label>
         <select type='select' name={name} required>
+        <option selected disabled hidden>Select</option>
         {
           users.map((user) =>
             <option key={user.id}>{user.name}</option>

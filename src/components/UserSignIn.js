@@ -9,7 +9,7 @@ export const UserSignIn = () => {
     <div className={styles.container}>
       <TextInput type='email' name='Email'/>
       <TextInput type='password' name='Password'/>
-      <Button text='Sign In'/>
+      <Button text='Sign In' size='large'/>
       <Link text='Sign Up' path='#'/>
     </div>
   )
