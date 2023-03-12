@@ -6,7 +6,13 @@
 }
 
 .listItemContainer {
+  min-width: 160px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 15px;
+}
+
+.lineThrough {
+  text-decoration: line-through;
 }

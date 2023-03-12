@@ -11,8 +11,8 @@ const Template = args => <MoneyTransactionList {...args} />
 export const Default = Template.bind({})
 Default.args = {
   transactions: [
-    { name: 'Mathias', price: 10.40, id: 1 },
-    { name: 'Lukas', price: 10.40, id: 2 },
-    { name: 'Simon', price: 10.40, id: 3 }
+    { name: 'Mathias', price: 10.40, paid: true, id: 1 },
+    { name: 'Lukas', price: 10.40, paid: false, id: 2 },
+    { name: 'Simon', price: 10.40, paid: true, id: 3 }
   ]
 }

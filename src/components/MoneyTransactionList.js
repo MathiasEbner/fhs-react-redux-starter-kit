@@ -8,7 +8,7 @@ export const MoneyTransactionList = ({ transactions }) => {
       <ul>
         {
           transactions.map((transaction) =>
-            <ListItem name={transaction.name} price={transaction.price} key={transaction.id}/>
+            <ListItem name={transaction.name} price={transaction.price} paid={transaction.paid} key={transaction.id}/>
           )
         }
       </ul>
