@@ -1,8 +1,13 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { UserSignIn } from './UserSignIn'
 
-storiesOf('UserSignIn', module)
-  .add('primary (default)', () => (
-    <UserSignIn>Click me</UserSignIn>
-  ))
+export default {
+  title: 'UserSignIn',
+  component: UserSignIn
+}
+
+const Template = args => <UserSignIn {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+}

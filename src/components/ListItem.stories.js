@@ -1,8 +1,15 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { ListItem } from './ListItem'
 
-storiesOf('ListItem', module)
-  .add('primary (default)', () => (
-    <ListItem>Click me</ListItem>
-  ))
+export default {
+  title: 'ListItem',
+  component: ListItem
+}
+
+const Template = args => <ListItem {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  name: 'A User',
+  price: 10.40
+}

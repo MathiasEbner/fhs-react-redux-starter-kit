@@ -1,9 +1,15 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
 import { Button } from './Button'
 
-storiesOf('Button', module)
-  .add('primary (default)', () => (
-    <Button onClick={action('clicked')} label="Hi">Click me</Button>
-  ))
+export default {
+  title: 'Button',
+  component: Button
+}
+
+const Template = args => <Button {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  text: 'Sign Up',
+  size: 'small'
+}

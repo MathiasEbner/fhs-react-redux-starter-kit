@@ -1,8 +1,14 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { DecimalInput } from './DecimalInput'
 
-storiesOf('DecimalInput', module)
-  .add('primary (default)', () => (
-    <DecimalInput></DecimalInput>
-  ))
+export default {
+  title: 'DecimalInput',
+  component: DecimalInput
+}
+
+const Template = args => <DecimalInput {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+  name: 'Amount'
+}
