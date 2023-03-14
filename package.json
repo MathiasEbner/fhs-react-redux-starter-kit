@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "eslint .",
+    "lint": "eslint src --ext .js,.jsx",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -63,14 +63,15 @@
     "@storybook/preset-create-react-app": "^4.0.1",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
+    "eslint": "^8.35.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0",
-    "eslint-plugin-react": "^7.29.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.4",
+    "lint-staged": "^12.5.0",
     "webpack": "^5.70.0"
   },
   "lint-staged": {

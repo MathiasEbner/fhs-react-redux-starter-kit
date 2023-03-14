@@ -1,0 +1,18 @@
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 20px;
+  border-top: 1px solid black;
+}
+
+.listItemContainer {
+  min-width: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.lineThrough {
+  text-decoration: line-through;
+}

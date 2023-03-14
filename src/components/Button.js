@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './Button.module.css'
 
-export const Button = ({ onClick, children }) => {
-  console.log(onClick)
+export const Button = ({ text, size }) => {
+  const sizeClassName = size === 'large' ? styles.large : styles.small
   return (
-  <button onClick={onClick} className={`${styles.button} ${styles.primary}`}>
-    {children}
+  <button className={`${styles.button} ${sizeClassName}`}>
+    {text}
   </button>
   )
 }
