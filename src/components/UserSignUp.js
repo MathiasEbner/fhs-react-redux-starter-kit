@@ -6,11 +6,11 @@ import { CustomLink } from './CustomLink'
 
 export const UserSignUp = () => {
   return (
-    <div className={styles.container}>
+    <form className={styles.container}>
       <TextInput type='email' name='Email'/>
       <TextInput type='password' name='Password'/>
-      <Button text='Sign Up' size='large'/>
+      <Button text='Sign Up' path='/sign-up' size='large'/>
       <CustomLink text='Sign In' path='/sign-in'/>
-    </div>
+    </form>
   )
 }

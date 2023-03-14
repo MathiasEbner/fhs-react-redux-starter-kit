@@ -8,17 +8,16 @@ import { SelectOption } from './SelectOption'
 export const MoneyTransactionCreate = ({ users }) => {
   return (
     <div className={styles.container}>
-        <Button text='Log out' size='large' />
+      <Button className={styles.logOut} path='/sign-in' text='Log out' size='small' />
       <div className={styles.rowHeader}>
         <SelectOption text='I owe somebody'/>
         <SelectOption text='Somebody owes me'/>
       </div>
-      <div className={styles.row}>
+      <form className={styles.inputRow}>
         <SelectInput name='User' users={users} />
         <DecimalInput name='Amount'/>
-        <Button text='Create' size='small'/>
-      </div>
-
+        <Button text='Create' path='#' size='small'/>
+      </form>
     </div>
   )
 }

@@ -1,24 +1,37 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 600px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr max-content;
+  row-gap: 20px;
+  column-gap: 20px;
+  width: 750px;
+  grid-template-areas:
+    ". . logOut"
+    "switch switch ."
+    "form form .";
 }
 
 p {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
 
+.container>button {
+  grid-area: logOut;
+  justify-self: right;
 }
 
 .rowHeader {
+  grid-area: switch;
   display: flex;
   justify-content: center;
   gap: 30px;
+  background-color: green;
 }
 
-.row {
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
+.inputRow {
+  grid-area: form;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  align-items: end;
+  background-color: yellow;
 }

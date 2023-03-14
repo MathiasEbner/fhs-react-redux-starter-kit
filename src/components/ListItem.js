@@ -21,7 +21,7 @@ export const ListItem = ({ name, price, paid }) => {
         <div className={styles.listItemContainer}>
           <p className={checkPaid()}>{`${printPrize(price)}$`}</p>
           {
-            paid ? <Button text='Paid' size='small' onClick={handleClick()}/> : ''
+            paid ? <Button text='Paid' path='#' size='small' onClick={handleClick()}/> : null
           }
         </div>
     </li>
