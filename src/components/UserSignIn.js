@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './UserSignIn.module.css'
-import { TextInput } from './TextInput'
-import { ButtonInput } from './ButtonInput'
-import { CustomLink } from './CustomLink'
+import { TextInput } from './inputs/TextInput'
+import { ButtonInput } from './inputs/ButtonInput'
+import { CustomLink } from './inputs/CustomLink'
 import { useFormik } from 'formik'
 
 export const UserSignIn = () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './MoneyTransactionList.module.css'
-import { ListItem } from './ListItem'
+import { ListItem } from './common/ListItem'
 
 export const MoneyTransactionList = ({ transactions }) => {
   return (

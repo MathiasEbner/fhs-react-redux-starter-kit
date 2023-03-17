@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './SelectOption.module.css'
+import styles from './InputSwitch.module.css'
 
-export const SelectOption = ({ text }) => {
+export const InputSwitch = ({ text }) => {
   return (
   <h3 className={styles.link}>
     {text}
