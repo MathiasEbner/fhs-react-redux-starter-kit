@@ -10,5 +10,6 @@ const Template = args => <InputSwitch {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  text: 'I owe somebody'
+  text: 'I owe somebody',
+  id: 'switch1'
 }

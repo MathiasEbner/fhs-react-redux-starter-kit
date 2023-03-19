@@ -27,8 +27,6 @@ p {
   column-gap: 10px;
   row-gap: 20px;
   align-items: end;
-  background-color: yellow;
-
 }
 
 .switchRow {
@@ -36,5 +34,4 @@ p {
   display: flex;
   justify-content: center;
   gap: 30px;
-  background-color: green;
 }

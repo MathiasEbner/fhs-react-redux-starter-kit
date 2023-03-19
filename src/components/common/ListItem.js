@@ -12,7 +12,7 @@ export const ListItem = ({ id, creditorId, amount, paidAt, users }) => {
   const handleTransactionPaid = () => {
     console.log(`id: ${id}, paidAt: ${(new Date()).toISOString()}`)
     if (isPaid === null) {
-      setIsPaid(false)
+      setIsPaid((new Date()).toISOString())
     }
   }
 
@@ -22,7 +22,7 @@ export const ListItem = ({ id, creditorId, amount, paidAt, users }) => {
         <div className={styles.listItemContainer}>
           <p className={checkPaid()}>{`${printPrize(amount)}$`}</p>
           {
-            paidAt === null ? <Button text='Paid' path='' size='small' onClick={handleTransactionPaid}/> : null
+            isPaid === null ? <Button text='Paid' path='' size='small' onClick={handleTransactionPaid}/> : null
           }
         </div>
     </li>
