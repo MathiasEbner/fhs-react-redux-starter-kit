@@ -2,26 +2,27 @@ import React, { useState } from 'react'
 import styles from './ListItem.module.css'
 import { Button } from './Button'
 
-export const ListItem = ({ name, price, paid }) => {
-  const [isPaid, setIsPaid] = useState(paid)
+export const ListItem = ({ id, creditorId, amount, paidAt, users }) => {
+  const [isPaid, setIsPaid] = useState(paidAt)
 
-  const printPrize = (price) => price ? price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace('.', ',') : 'N/A'
+  const printPrize = (amount) => amount ? amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace('.', ',') : 'N/A'
 
-  const checkPaid = () => paid ? '' : styles.lineThrough
+  const checkPaid = () => isPaid === null ? '' : styles.lineThrough
 
-  const handleClick = () => {
-    if (isPaid) {
+  const handleTransactionPaid = () => {
+    console.log(`id: ${id}, paidAt: ${(new Date()).toISOString()}`)
+    if (isPaid === null) {
       setIsPaid(false)
     }
   }
 
   return (
-    <li className={styles.listItem}>
-        <p className={checkPaid()}>{name}</p>
+    <li className={styles.listItem} >
+        <p className={checkPaid()}>{users.find((user) => user.id === creditorId).name}</p>
         <div className={styles.listItemContainer}>
-          <p className={checkPaid()}>{`${printPrize(price)}$`}</p>
+          <p className={checkPaid()}>{`${printPrize(amount)}$`}</p>
           {
-            paid ? <Button text='Paid' path='#' size='small' onClick={handleClick()}/> : null
+            paidAt === null ? <Button text='Paid' path='' size='small' onClick={handleTransactionPaid}/> : null
           }
         </div>
     </li>

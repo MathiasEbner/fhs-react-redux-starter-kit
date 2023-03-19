@@ -5,9 +5,9 @@ import { MoneyTransactionList } from './MoneyTransactionList'
 
 export const MoneyTransaction = () => {
   const users = [
-    { name: 'Mathias', id: '1' },
-    { name: 'Lukas', id: '2' },
-    { name: 'Simon', id: '3' }
+    { name: 'Mathias', id: 1 },
+    { name: 'Lukas', id: 2 },
+    { name: 'Simon', id: 3 }
   ]
 
   const transactions = [
@@ -23,8 +23,8 @@ export const MoneyTransaction = () => {
 
   return (
     <main className={styles.container}>
-      <MoneyTransactionCreate users={users} />
-      <MoneyTransactionList transactions={transactions} />
+      <MoneyTransactionCreate transactions={transactions} users={users} />
+      <MoneyTransactionList transactions={transactions} users={users}/>
     </main>
   )
 }

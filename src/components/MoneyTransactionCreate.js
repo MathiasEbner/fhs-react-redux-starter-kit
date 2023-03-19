@@ -7,10 +7,17 @@ import { ButtonInput } from './inputs/ButtonInput'
 import { InputSwitch } from './inputs/InputSwitch'
 import { useFormik } from 'formik'
 
-export const MoneyTransactionCreate = ({ users }) => {
+export const MoneyTransactionCreate = ({ transactions, users }) => {
   const formik = useFormik({
     initialValues: { user: '', amount: '' },
-    onSubmit: values => console.log(values)
+    onSubmit: values => {
+      if (values.pay === 'I owe somebody') {
+        return console.log(`debitorId: ${users[0].id}, creditorId: ${users.find(user => user.name === values.user).id}, amount: ${values.amount}`)
+      }
+      if (values.pay === 'Somebody owes me') {
+        return console.log(`debitorId: ${users.find(user => user.name === values.user).id}, creditorId: ${users[0].id}, amount: ${values.amount}`)
+      }
+    }
   })
   return (
     <div className={styles.container}>
