@@ -3,20 +3,27 @@ import styles from './MoneyTransactionCreate.module.css'
 import { SelectInput } from './inputs/SelectInput'
 import { DecimalInput } from './inputs/DecimalInput'
 import { Button } from './common/Button'
+import { ButtonInput } from './inputs/ButtonInput'
 import { InputSwitch } from './inputs/InputSwitch'
+import { useFormik } from 'formik'
 
 export const MoneyTransactionCreate = ({ users }) => {
+  const formik = useFormik({
+    initialValues: { user: '', amount: '' },
+    onSubmit: values => console.log(values)
+  })
   return (
     <div className={styles.container}>
       <Button className={styles.logOut} path='/sign-in' text='Log out' size='small' />
-      <div className={styles.rowHeader}>
-        <InputSwitch text='I owe somebody'/>
-        <InputSwitch text='Somebody owes me'/>
-      </div>
-      <form className={styles.inputRow}>
-        <SelectInput name='User' users={users} />
-        <DecimalInput name='Amount'/>
-        <Button text='Create' path='#' size='small'/>
+
+      <form onSubmit={formik.handleSubmit} className={styles.formContainer}>
+        <div className={styles.switchRow}>
+          <InputSwitch text='I owe somebody' id='switch1' onChange={formik.handleChange} />
+          <InputSwitch text='Somebody owes me' id='switch2' onChange={formik.handleChange}/>
+        </div>
+        <SelectInput name='user' users={users} onChange={formik.handleChange} value={formik.values.user} />
+        <DecimalInput name='amount' onChange={formik.handleChange} value={formik.values.amount}/>
+        <ButtonInput text='Create' size='small' />
       </form>
     </div>
   )

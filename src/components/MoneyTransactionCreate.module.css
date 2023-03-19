@@ -6,7 +6,7 @@
   width: 750px;
   grid-template-areas:
     ". . logOut"
-    "switch switch ."
+    "form form ."
     "form form .";
 }
 
@@ -19,19 +19,22 @@ p {
   justify-self: right;
 }
 
-.rowHeader {
-  grid-area: switch;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  background-color: green;
-}
 
-.inputRow {
+.formContainer {
   grid-area: form;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
+  row-gap: 20px;
   align-items: end;
   background-color: yellow;
+
+}
+
+.switchRow {
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: green;
 }

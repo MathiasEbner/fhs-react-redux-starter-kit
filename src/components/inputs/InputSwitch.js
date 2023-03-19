@@ -1,10 +1,13 @@
 import React from 'react'
 import styles from './InputSwitch.module.css'
 
-export const InputSwitch = ({ text }) => {
+export const InputSwitch = ({ text, id, onChange }) => {
   return (
-  <h3 className={styles.link}>
-    {text}
-  </h3>
+  <div>
+    <input className={styles} type="radio" id={id} onChange={onChange} value={text} name="pay" />
+    <label className={styles.switchLabel} htmlFor={id}>
+    {text}</label>
+  </div>
+
   )
 }

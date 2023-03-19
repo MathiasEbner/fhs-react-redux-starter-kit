@@ -11,10 +11,15 @@ export const MoneyTransaction = () => {
   ]
 
   const transactions = [
-    { name: 'Mathias', price: 10.40, paid: true, id: 1 },
-    { name: 'Lukas', price: 10.40, paid: false, id: 2 },
-    { name: 'Simon', price: 10.40, paid: true, id: 3 }
+    { id: 1, creditorId: 1, debitorId: 2, amount: 10.00, paidAt: null },
+    { id: 2, creditorId: 3, debitorId: 1, amount: 11.20, paidAt: '2000-01-01T00:00:00+01+00' }
   ]
+
+  // const transactions = [
+  //   { name: 'Mathias', price: 10.40, paid: true, id: 1 },
+  //   { name: 'Lukas', price: 10.40, paid: false, id: 2 },
+  //   { name: 'Simon', price: 10.40, paid: true, id: 3 }
+  // ]
 
   return (
     <main className={styles.container}>
