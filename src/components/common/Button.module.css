@@ -37,9 +37,14 @@
 }
 
 .small {
-  padding: 8px 35px;
+  padding: 10px 35px;
 }
 
 .large {
-  padding: 20px 15px;
+  padding: 20px 35px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

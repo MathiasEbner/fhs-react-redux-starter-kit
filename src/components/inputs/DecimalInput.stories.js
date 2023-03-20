@@ -10,5 +10,6 @@ const Template = args => <DecimalInput {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  name: 'Amount'
+  name: 'Amount',
+  value: 12.10
 }

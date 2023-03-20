@@ -1,12 +1,12 @@
 import React from 'react'
-import { Link } from './Link'
+import { CustomLink } from './CustomLink'
 
 export default {
-  title: 'Link',
-  component: Link
+  title: 'CustomLink',
+  component: CustomLink
 }
 
-const Template = args => <Link {...args} />
+const Template = args => <CustomLink {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

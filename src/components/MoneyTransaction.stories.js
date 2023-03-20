@@ -1,12 +1,12 @@
 import React from 'react'
-import { MoneyTransactionList } from './MoneyTransactionList'
+import { MoneyTransaction } from './MoneyTransaction'
 
 export default {
-  title: 'MoneyTransactionList',
-  component: MoneyTransactionList
+  title: 'MoneyTransaction',
+  component: MoneyTransaction
 }
 
-const Template = args => <MoneyTransactionList {...args} />
+const Template = args => <MoneyTransaction {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
