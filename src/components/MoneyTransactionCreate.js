@@ -12,17 +12,40 @@ export const MoneyTransactionCreate = ({ users }) => {
     initialValues: { user: users[0].name, amount: '' }, // the first user of users is default
     onSubmit: values => {
       if (values.pay === 'I owe somebody') {
-        return console.log(`debitorId: ${users[0].id}, creditorId: ${users.find(user => user.name === values.user).id}, amount: ${values.amount}`) // the first user of users is default debitor
+        fetch('http://localhost:3001/money-transaction', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            creditorId: users.find(user => user.name === values.user).id,
+            debitorId: users[0].id, // the first user of users is default debitor
+            amount: values.amount,
+            paidAt: null
+          })
+        })
+        return console.log(`debitorId: ${users[0].id}, creditorId: ${users.find(user => user.name === values.user).id}, amount: ${values.amount}`)
       }
       if (values.pay === 'Somebody owes me') {
-        return console.log(`debitorId: ${users.find(user => user.name === values.user).id}, creditorId: ${users[0].id}, amount: ${values.amount}`) // the first user of users is default creditor
+        fetch('http://localhost:3001/money-transaction', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            creditorId: users[0].id, // the first user of users is default creditor
+            debitorId: users.find(user => user.name === values.user).id,
+            amount: values.amount,
+            paidAt: null
+          })
+        })
+        return console.log(`debitorId: ${users.find(user => user.name === values.user).id}, creditorId: ${users[0].id}, amount: ${values.amount}`)
       }
     }
   })
   return (
     <div className={styles.container}>
       <Button className={styles.logOut} path='/sign-in' text='Log out' size='small' />
-
       <form onSubmit={formik.handleSubmit} className={styles.formContainer}>
         <div className={styles.switchRow}>
           <InputSwitch text='I owe somebody' id='switch1' onChange={formik.handleChange} />
