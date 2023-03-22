@@ -27,7 +27,7 @@
     "build-storybook": "build-storybook -s public",
     "lint": "eslint src --ext .js,.jsx",
     "prepare": "husky install",
-    "start:server": "json-server --watch db.json -- port 3001"
+    "start:server": "json-server --watch db.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
