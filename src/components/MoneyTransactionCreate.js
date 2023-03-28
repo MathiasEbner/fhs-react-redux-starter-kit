@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './MoneyTransactionCreate.module.css'
 import { SelectInput } from './inputs/SelectInput'
 import { DecimalInput } from './inputs/DecimalInput'
@@ -6,10 +6,19 @@ import { Button } from './common/Button'
 import { ButtonInput } from './inputs/ButtonInput'
 import { InputSwitch } from './inputs/InputSwitch'
 import { useFormik } from 'formik'
+import { useUsers } from './globalState'
 
-export const MoneyTransactionCreate = ({ users }) => {
+export const MoneyTransactionCreate = () => {
+  const users = useUsers((state) => state.users)
+  const fetchUser = useUsers((state) => state.fetchUsers)
+
+  useEffect(() => {
+    console.log('hi')
+    fetchUser()
+  }, [fetchUser])
+
   const formik = useFormik({
-    initialValues: { user: users[0].name, amount: '' }, // the first user of users is default
+    initialValues: { user: users[0]?.name, amount: '' }, // the first user of users is default
     onSubmit: values => {
       if (values.pay === 'I owe somebody') {
         fetch('http://localhost:3001/money-transaction', {
@@ -43,6 +52,7 @@ export const MoneyTransactionCreate = ({ users }) => {
       }
     }
   })
+
   return (
     <div className={styles.container}>
       <Button className={styles.logOut} path='/sign-in' text='Log out' size='small' />
