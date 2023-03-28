@@ -8,7 +8,7 @@ export const MoneyTransactionList = ({ transactions, users }) => {
       <ul>
         {
           transactions.map((transaction) =>
-            <ListItem creditorId={transaction.creditorId} amount={transaction.amount} paidAt={transaction.paidAt} users={users} id={transaction.id} key={transaction.id} />
+            <ListItem creditorId={transaction.creditorId} debitorId={transaction.debitorId} amount={transaction.amount} paidAt={transaction.paidAt} users={users} id={transaction.id} key={transaction.id} />
           )
         }
       </ul>

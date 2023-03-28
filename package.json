@@ -26,7 +26,8 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint src --ext .js,.jsx",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start:server": "json-server --watch db.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
@@ -75,6 +76,7 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^7.0.4",
+    "json-server": "^0.17.2",
     "lint-staged": "^12.5.0",
     "webpack": "^5.70.0"
   },
