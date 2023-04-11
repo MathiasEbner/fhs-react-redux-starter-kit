@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import produce from 'immer'
 
 export const useUsers = create((set) => {
   return {
@@ -24,9 +25,27 @@ export const useTransactions = create((set) => {
         }
       })
       set({ transactions: await response.json() })
+    },
+    updateTransaction: async (id) => {
+      const response = await fetch(`http://localhost:3001/money-transaction/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          paidAt: (new Date()).toISOString()
+        })
+      })
+      const updatedTransaction = await response.json()
+      set(
+        produce((draft) => {
+          const transactionIndex = draft.transactions.findIndex((transaction) => transaction.id === id)
+          if (transactionIndex !== -1) {
+            draft.transactions[transactionIndex] = updatedTransaction
+          }
+        })
+      )
     }
-    // updateTransaction: async (transaction) => {
-
-    // }
   }
-})
+}
+)
