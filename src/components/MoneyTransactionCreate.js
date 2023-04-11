@@ -7,10 +7,11 @@ import { ButtonInput } from './inputs/ButtonInput'
 import { InputSwitch } from './inputs/InputSwitch'
 import { useFormik } from 'formik'
 import { useUsers } from './globalState'
+import memoize from 'memoize-one'
 
 export const MoneyTransactionCreate = () => {
-  const users = useUsers((state) => state.users)
-  const fetchUser = useUsers((state) => state.fetchUsers)
+  const users = useUsers(memoize((state) => state.users))
+  const fetchUser = useUsers(memoize((state) => state.fetchUsers))
 
   useEffect(() => {
     fetchUser()

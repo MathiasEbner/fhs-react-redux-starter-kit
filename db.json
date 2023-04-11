@@ -25,28 +25,28 @@
       "creditorId": 1,
       "debitorId": 2,
       "amount": 122.87,
-      "paidAt": null,
+      "paidAt": "2023-04-11T23:21:30.752Z",
       "id": 4
     },
     {
       "creditorId": 2,
       "debitorId": 1,
       "amount": 55,
-      "paidAt": "2023-03-28T14:30:17.103Z",
+      "paidAt": null,
       "id": 5
     },
     {
       "creditorId": 3,
       "debitorId": 1,
       "amount": 54,
-      "paidAt": "2023-04-11T22:43:19.614Z",
+      "paidAt": null,
       "id": 6
     },
     {
       "creditorId": 2,
       "debitorId": 1,
       "amount": 22,
-      "paidAt": "2023-04-11T22:52:57.839Z",
+      "paidAt": null,
       "id": 7
     },
     {
@@ -69,6 +69,20 @@
       "amount": 44,
       "paidAt": "2023-04-11T19:14:35.391Z",
       "id": 10
+    },
+    {
+      "creditorId": 1,
+      "debitorId": 2,
+      "amount": 9,
+      "paidAt": null,
+      "id": 11
+    },
+    {
+      "creditorId": 1,
+      "debitorId": 2,
+      "amount": 9,
+      "paidAt": null,
+      "id": 12
     }
   ],
   "user": [
