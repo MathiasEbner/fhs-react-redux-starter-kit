@@ -3,7 +3,7 @@ import { create } from 'zustand'
 export const useUsers = create((set) => {
   return {
     users: [],
-    fetchUsers: async (state) => {
+    fetchUsers: async () => {
       const response = await fetch('http://localhost:3001/user', {
         headers: {
           'Content-Type': 'application/json'
@@ -14,6 +14,19 @@ export const useUsers = create((set) => {
   }
 })
 
-// const useTransactions = create((set) => {
+export const useTransactions = create((set) => {
+  return {
+    transactions: [],
+    fetchTransactions: async () => {
+      const response = await fetch('http://localhost:3001/money-transaction', {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      set({ transactions: await response.json() })
+    }
+    // updateTransaction: async (transaction) => {
 
-// })
+    // }
+  }
+})

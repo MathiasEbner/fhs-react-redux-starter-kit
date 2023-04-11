@@ -13,41 +13,33 @@ export const MoneyTransactionCreate = () => {
   const fetchUser = useUsers((state) => state.fetchUsers)
 
   useEffect(() => {
-    console.log('hi')
     fetchUser()
   }, [fetchUser])
+
+  const postData = (creditorId, debitorId, amount, paidAt) => {
+    fetch('http://localhost:3001/money-transaction', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        creditorId,
+        debitorId,
+        amount,
+        paidAt
+      })
+    })
+  }
 
   const formik = useFormik({
     initialValues: { user: users[0]?.name, amount: '' }, // the first user of users is default
     onSubmit: values => {
       if (values.pay === 'I owe somebody') {
-        fetch('http://localhost:3001/money-transaction', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            creditorId: users.find(user => user.name === values.user).id,
-            debitorId: users[0].id, // the first user of users is default debitor
-            amount: values.amount,
-            paidAt: null
-          })
-        })
+        postData(users.find(user => user.name === values.user).id, users[0].id, values.amount, null) // the first user of users is default debitor
         return console.log(`debitorId: ${users[0].id}, creditorId: ${users.find(user => user.name === values.user).id}, amount: ${values.amount}`)
       }
       if (values.pay === 'Somebody owes me') {
-        fetch('http://localhost:3001/money-transaction', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            creditorId: users[0].id, // the first user of users is default creditor
-            debitorId: users.find(user => user.name === values.user).id,
-            amount: values.amount,
-            paidAt: null
-          })
-        })
+        postData(users[0].id, users.find(user => user.name === values.user).id, values.amount, null) // the first user of users is default creditor
         return console.log(`debitorId: ${users.find(user => user.name === values.user).id}, creditorId: ${users[0].id}, amount: ${values.amount}`)
       }
     }
