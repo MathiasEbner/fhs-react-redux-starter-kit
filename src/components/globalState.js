@@ -45,6 +45,26 @@ export const useTransactions = create((set) => {
           }
         })
       )
+    },
+    createTransaction: async (creditorId, debitorId, amount, paidAt) => {
+      const response = await fetch('http://localhost:3001/money-transaction', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          creditorId,
+          debitorId,
+          amount,
+          paidAt
+        })
+      })
+      const createdTransaction = await response.json()
+      set(
+        produce((draft) => {
+          draft.transactions.push(createdTransaction)
+        })
+      )
     }
   }
 }
