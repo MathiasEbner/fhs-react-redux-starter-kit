@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styles from './MoneyTransactionList.module.css'
 import { ListItem } from './common/ListItem'
 import { useUsers, useTransactions } from './globalState'
-import memoize from 'memoize-one'
+import memoize from 'memoizee'
 
 export const MoneyTransactionList = () => {
   const users = useUsers(memoize((state) => state.users))

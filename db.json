@@ -41,6 +41,13 @@
       "amount": 54,
       "paidAt": null,
       "id": 6
+    },
+    {
+      "creditorId": 2,
+      "debitorId": 1,
+      "amount": 55,
+      "paidAt": "2023-04-16T09:03:38.510Z",
+      "id": 7
     }
   ],
   "user": [
