@@ -8,8 +8,11 @@ import { InputSwitch } from './inputs/InputSwitch'
 import { useFormik } from 'formik'
 import { useUsers, useTransactions } from './globalState'
 import memoize from 'memoizee'
+import { auth } from '../firebase'
+import { useSignOut } from 'react-firebase-hooks/auth'
 
 export const MoneyTransactionCreate = () => {
+  const [signOut] = useSignOut(auth)
   const users = useUsers(memoize((state) => state.users))
   const fetchUser = useUsers(memoize((state) => state.fetchUsers))
   const createTransactions = useTransactions(memoize((state) => state.createTransaction))
@@ -34,7 +37,7 @@ export const MoneyTransactionCreate = () => {
 
   return (
     <div className={styles.container}>
-      <Button className={styles.logOut} path='/sign-in' text='Log out' size='small' />
+      <Button className={styles.logOut} path='/sign-in' text='Log out' size='small' onClick={signOut}/>
       <form onSubmit={formik.handleSubmit} className={styles.formContainer}>
         <div className={styles.switchRow}>
           <InputSwitch text='I owe somebody' id='switch1' onChange={formik.handleChange} />
