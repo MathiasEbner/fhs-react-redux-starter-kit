@@ -4,11 +4,15 @@ import { TextInput } from './inputs/TextInput'
 import { ButtonInput } from './inputs/ButtonInput'
 import { CustomLink } from './inputs/CustomLink'
 import { useFormik } from 'formik'
+import { auth } from '../firebase'
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
 
 export const UserSignUp = () => {
+  const [signUp] = useCreateUserWithEmailAndPassword(auth)
+
   const formik = useFormik({
     initialValues: { email: '', password: '' },
-    onSubmit: values => console.log(values)
+    onSubmit: async (values) => await signUp(values.email, values.password)
   })
 
   return (
