@@ -11,10 +11,8 @@ export const MoneyTransaction = () => {
   const signedIn = Boolean(user)
   const navigate = useNavigate()
 
-  if (!signedIn) {
-    navigate('/sign-in')
-    return null
-  }
+  !signedIn ? navigate('/sign-in') : null
+
   return (
     <main className={styles.container}>
       <MoneyTransactionCreate />
