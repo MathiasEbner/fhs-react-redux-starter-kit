@@ -20,15 +20,10 @@ export const UserSignUp = () => {
   const formik = useFormik({
     initialValues: { email: '', password: '' },
     onSubmit: async (values) => {
-      try {
-        await signUp(values.email, values.password)
-      } catch (error) {
-        console.log(error)
-        if (error.message === 'EMAIL_EXISTS') {
-          setError('E-Mail already taken')
-        } else {
-          setError('Error signing in')
-        }
+      const user = await signUp(values.email, values.password)
+      console.log(user)
+      if (user === undefined) {
+        setError('E-Mail already taken')
       }
     }
   })
